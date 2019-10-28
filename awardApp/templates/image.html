@@ -38,6 +38,20 @@
 <h3 style="font-family: 'Dosis' sans-serif;">Add your comment</h3>
 <hr>
 <form action="" method="post" style="font-family: 'Dosis',sans-serif">
+  {%csrf_token%} {% bootstrap_form form%}
+  <input type="submit" class="btn btn-primary" value="Post">
 </form>
+<hr>
+
 </div>
 </div>
+</div>
+</div>
+<div class="container">
+  <div class="col-md-12">
+    <div class="footer text-center">
+      <ul id="footer1"></ul>
+    </div>
+  </div>
+</div>
+{% endblock%}
