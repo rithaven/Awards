@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+{% load bootstrap4%}
+{%load static%}
+{{block.super}}
+{%block content%}
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Abril+Fatface" />
+<div class="container">
+  <div class="jumbotron text-center mb-0" id="jumbo" style="background-color:white;">
+
+    <h1 class="second" style="font-family: 'Dosis', cursive; color:blue;font-size:70px;">Awards</h4>
+      <p class="third" style="font-family: 'Dosis', cursive; color:blue;font-size:25px;"View projects, submit your project and review them></p>
+    </div>
+
+    <div class="jumbotron itson mb-3">
+      <div class="card-deck flex-wrap">
+        {% for project in projects%}
+        <div class="card border-secondary w-33"><a href="{% url 'project' project.id%}">
+
+          <img src="{{project.project_image.url}}" data-target="#imageModal{{project.id}}" data-toggle="modal" alt="" class="img-fluid"
+          id="image1" size="100px200"></a>
+          <p style="font-family: 'Dosis', sans-serif; text-align:center;">{{project.description}}078246229</p>
+          <p style="font-family: 'Disis',sans-serif; text-align:center;">{{project.user.username}}</p>
+          <span class="badge badge-pill badge-info" style="font-family: 'Dosis',sans-serif;">
+          <a style="font-size: 20px;color: #EEE;" href="{{project.project_url}}">visit Site</a></span>
+          <span class="badge badge-pill badge-info" style="font-family: 'Dosis', sans-serif; text-align:center;font-size: 20px;color: #EEE;">Like</span>
+          <span class="badge badge-pill badge-info" style="font-family: 'Disis',sans-serif;text-align: center;"><a style="font-size: 20px;color: #EEE;"href="{% url 'project' project.id%}">View project</a></span>
+
+        </div>
+        {% endfor%}
+      </div>
+    </div>
+    <div class="jumbotron text-center mt-3" style="background-color:white;font-family: 'Dosis', sans-serif;">
+    <form action="{%url 'homePage'%}" method="post">
+      {%csrf_token%}{% bootstrap_form letterForm%}
+      <input type="submit" style="background-color:white;" value="subscribe to Awards">
+    </form>
+
+      </div>
+    </div>
+  {% endblock %}{%block scripts%}
+  <script type="text/javascript" src="{%static 'js/scripts.js'%}"></script>
+{% endblock%}

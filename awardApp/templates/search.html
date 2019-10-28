@@ -1,0 +1,30 @@
+{%extends 'base.html'%}{% block content%}
+<div class="container">
+  <div class="row">
+    {% if profiles%}
+    <h2 style="font-family: 'kodchasan',sans-serif;color:white;">These are profiles of your search term:{{message}}</h2>
+    {% else%}
+    <h2 style="font-family:'kodchasan',sans-serif;color: white;">It appears that there are 0 profiles for your
+      {{message}}, please try again.</h2>
+      {% endif%}
+  </div>
+  <h1 style="font-family:'Dosis', sans-serif;"><strong>These are the projects found</strong></h1>
+  {% for profile in profiles%}
+  <p style="font-family: 'Dosis', sans-serif;"><a href="{% url 'individual_profile_page.user.id'%}">{{profile.user.username}}</a></p>
+  {% endfor%}
+</div>
+<div class="row">
+  {% if projects%}
+  <div class="container">
+    <div class="card-columns">
+      {% for project in projects%}
+      <div class="card border-secondary">
+        <img src="{{project.project_image.url}}" data-target="#imageModal{{project.id}}" data-toggle="modal" alt="" class="img-fluid" id="eachimage" size="100px200">
+
+      </div>
+      {% endfor%}
+    </div>
+  </div>
+  {% endif%}
+</div>
+{%endblock%}
