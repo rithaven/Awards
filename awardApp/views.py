@@ -73,19 +73,19 @@ def project(request, id):
     else: 
         form = ReviewForm()
 
-    return render(request,'photos.html', {"project": project,'form':form,'comments':comments,
-                          'latest_review_list':latest_review_list})
+    return render(request,'image.html', {"project": project,'form':form,'comments':comments,'latest_review_list':latest_review_list})
+                          
 
 @login_required(login_url='/accounts/login/')
-def new_photo(request):
+def new_image(request):
    current_user = request.user
    if request.method =='POST':
         form = NewImageForm(request.POST, request.FILES)
         
         if form.is_valid():
-             photo= form.save(commit=False)
-             photo.user= current_user
-             photo.save()
+             image= form.save(commit=False)
+             image.user= current_user
+             image.save()
         return redirect('homePage')
 
    else: 
@@ -133,6 +133,12 @@ def edit_profile(request):
        form = UpdatebioForm()
    return render(request, 'registration/edit_profile.html', {"from":form})
 
+@login_required(login_url='accounts/login/')
+def individual_profile_page(request,username=None):
+   if not username:
+        username=request.user.username
+   images=Image.objects.filter(user_id=username)
+   return render(request,'registration/user_image_list.html',{'images':images,'username':username})
 
 def search_projects(request):
 
@@ -161,12 +167,11 @@ def search_image(request):
 
 @login_required(login_url='/accounts/login')
 def individual_profile_page(request,username):
-    
     print(username)
     if not username:
         username = request.user.username
 
-        images = Image.objects.get(user_id=username)
+        images = Image.objects.filter(user_id=username)
         user = request.user
         profile = Profile.objects.get(user=user)
         userf = User.objects.get(pk=username)

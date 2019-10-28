@@ -14,6 +14,11 @@ urlpatterns=[
     url(r'^new/project$',views.new_project, name='new_project'),
     url(r'edit/profile$',views.edit_profile, name='edit_profile'),
     url(r'^profile/(?P<username>[0-9]+)$',views.individual_profile_page, name='individual_profile_page'),
+    url(r'^new/image$', views.new_image, name='new_image'),
+    url(r'^$', views.review_list, name='review_list'),
+
+    url(r'review/(?P<review_id>[0-9]+)/$',views.review_details, name='review_detail'),
+    url(r'project$',views.project_list, name='project_list'),
 
     
 ]

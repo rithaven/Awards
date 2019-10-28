@@ -5,6 +5,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import datetime as dt
 from tinymce.models import HTMLField
+import numpy as np
 # Create your models here.
 
 class tags(models.Model):
@@ -46,7 +47,7 @@ class Project(models.Model):
 
     def average_content(self):
         content_ratings = list(map(lambda x: x.content_rating, self.reviews.all()))
-        return np.mean(content_rating) 
+        return np.mean(content_ratings) 
 
     def save_project(self):
         self.save()  
