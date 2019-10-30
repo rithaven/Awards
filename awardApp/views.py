@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import Image,Location,tags, Profile,Review, NewsLetterRecipients,Like,Project
 from django.http import HttpResponse, Http404,HttpResponseRedirect, JsonResponse
 from django.contrib.auth.decorators import login_required
@@ -12,7 +12,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import ProjectSerializer, ProfileSerializer
 from rest_framework import status
-# from .permissions import IsAdminOrReadOnly
+from .permissions import IsAdminOrReadOnly
+
 
 # Create your views here.
   
@@ -121,17 +122,17 @@ def edit_profile(request):
    current_user = request.user
 
    if request.method =='POST':
-        form = updatebioForm(request.POST,request.FILES, instance= current_user.profile)
+        form = UpdatebioForm(request.POST,request.FILES, instance= current_user.profile)
         print(form.is_valid())
         if form.is_valid():
-           photo = form.save(commit=False)
-           photo.user = current_user
-           photo.save()
+           image = form.save(commit=False)
+           image.user = current_user
+           image.save()
         return redirect('homePage')
 
    else:
        form = UpdatebioForm()
-   return render(request, 'registration/edit_profile.html', {"from":form})
+   return render(request, 'registration/edit_profile.html', {"form":form})
 
 @login_required(login_url='accounts/login/')
 def individual_profile_page(request,username=None):
@@ -165,32 +166,32 @@ def search_image(request):
               message ="you haven't searched for any image"
               return render(request, 'search.html',{"message": message})
 
-@login_required(login_url='/accounts/login')
+@login_required(login_url='/accounts/login/')
 def individual_profile_page(request,username):
     print(username)
     if not username:
         username = request.user.username
 
-        images = Image.objects.filter(user_id=username)
-        user = request.user
-        profile = Profile.objects.get(user=user)
-        userf = User.objects.get(pk=username)
-        latest_review_list = Review.objects.filter(user_id=username).filter(user_id=username)
-        context = {'latest_review_list': latest_review_list}
-        if userf:
-            print('user found')
-            profile = Profile.objects.get(user=userf)
+    images = Image.objects.filter(user_id=username)
+    user = request.user
+    profile = Profile.objects.get(user=user)
+    userf = User.objects.get(pk=username)
+    latest_review_list = Review.objects.filter(user_id=username).filter(user_id=username)
+    context = {'latest_review_list': latest_review_list}
+    if userf:
+        print('user found')
+        profile = Profile.objects.get(user=userf)
 
-        else:
-            print('That user does not exist')
-        return render(request, 'registration/user_image_list.html', context, {'images':images,'profile':profile,'user':user,'username':username})
+    else:
+        print('That user does not exist')
+    return render(request, 'registration/user_image_list.html', context, {'images':images,'profile':profile,'user':user,'username':username})
 
 def review_list(request):
     latest_review_list = Review.objects.all()
     context = {'latest_review_list': latest_review_list}
     return render(request,'review_list.html', context)
 
-def review_details(request, review_id):
+def review_detail(request, review_id):
     review = get_object_or_404(Review, pk=review_id)
     return render(request, 'review_details.html', {'review': review})
 
@@ -227,7 +228,7 @@ class ProjectList(APIView):
         return Response(serializers.errors, status = status.HTT_400_BAD_REQUEST)
 
 class ProjectDescription(APIView):
-      # permission_classes = (IsAdminOrReadOnly,)
+      permission_classes = (IsAdminOrReadOnly,)
       def get_project(self, pk):
           try:
 
@@ -271,24 +272,24 @@ class ProjectList(APIView):
 
           return Response(serializers.errors, status = status.HTT_400_BAD_REQUEST)
 
-# class ProjectDescription(APIView):
-#       # permission_classes = (IsAdminOrReadOnly,)
-#       def get_profile(self, pk):
-#           try:
-#               return Profile.objects.get(pk=pk)
-#           except Profile.DoesNotExit:
-#               return Htt404
+class ProfileDescription(APIView):
+      permission_classes = (IsAdminOrReadOnly,)
+      def get_profile(self, pk):
+          try:
+              return Profile.objects.get(pk=pk)
+          except Profile.DoesNotExit:
+              return Htt404
 
-#       def get(self, request, pk, format= None):
-#         profile = self.get_profile(pk)
-#         serializers = ProfileSerializer(profile, request.data)
-#         if serializers.is_valid():
-#            serializers.save()
-#            return Response(serializers.data)
-#         else:
-#             return Response(serializers.errors, status=status.HTT_400_BAD_REQUEST)
+      def get(self, request, pk, format= None):
+        profile = self.get_profile(pk)
+        serializers = ProfileSerializer(profile, request.data)
+        if serializers.is_valid():
+           serializers.save()
+           return Response(serializers.data)
+        else:
+            return Response(serializers.errors, status=status.HTT_400_BAD_REQUEST)
 
-#       def delete(self,request,pk, format=None):
-#           profile = self.get_profile(pk)
-#           profile.delete()
-#           return Response(status=status.HTT_204_NO_CONTENT)
+      def delete(self,request,pk, format=None):
+          profile = self.get_profile(pk)
+          profile.delete()
+          return Response(status=status.HTT_204_NO_CONTENT)
