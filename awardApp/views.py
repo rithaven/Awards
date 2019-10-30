@@ -40,7 +40,7 @@ def home(request):
 
              send_welcome_email(name,email)
 
-             HttResponseRedirect('home')
+             HttpResponseRedirect('home')
 
    return render(request, 'index.html', {'projects': projects, 'letterForm':form})
 

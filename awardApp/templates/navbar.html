@@ -1,11 +1,10 @@
 {% load static%}
-<link href="https://fonts.googleapis.com/css?family=Bree+Serif|Cabin|Coustard|Crete+Round|Dancing+Script|Lato|Muli:300,400|Noto+Sans|Quando|Roboto+Slab|Satisfy&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-<nav class="navbar bg-light">
+<nav class="navbar bg-dark">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{% url 'homePage'%}"><img src="https://png.icons8.com/linen/50/000000/rating.png"style="height:40px; width:36px;"></a>
-      <a class="navbar-brand"id="victor"href="{% url 'homePage'%}">Awards</a>
+      <a class="navbar-brand" href="{% url 'homePage'%}"><img src="https://cdn1.iconfinder.com/data/icons/feedback-9/512/Rating-512.png"style="height:60px; width:50px;">AwD</a>
     </div>
     <div>
 
@@ -13,22 +12,23 @@
     <div class="col-sm-6 col-md-6">
       {% if user.is_authenticated%}
    
-      <li style="font-family: 'Dosis', sans-serif;">
+    <button>
         <a href="{%url 'edit_profile'%}">Edit Profile</a>
-      </li>
-    <li style="font-family: 'Dosis', sans-serif">
-    <a href="{% url 'individual_profile_page' user.id%}">My Profile</a></li>
-     <li style="font-family: 'Dosis', sans-serif;">
+    </button>
+    <button>
+    <a href="{% url 'individual_profile_page' user.id%}">My Profile</a>
+    </button> 
+    <button>
       <a href="{%url 'new_project'%}">Submit your Project</a>
-    </li>
-    <li style="font-family: 'Dosis',sans-serif;">
+    </button>
+    <button>
       <a href="/accounts/password/change">Change Password</a>
-    </li>
-    <li style="font-family: 'Dosis', sans-serif;">
+    </button>
+    <button>
       <a href="/logout">Logout</a>
-    </li>
+    </button>
     {% else%}
-    <li style="font-family: 'Dosis', sans-serif;">
+    <li style="font-family: 'Dosis', sans-serif;text-decoration: none">
       <a class="btn btn-default" href="/accounts/register">Register</a>
     </li>
     {% endif%}

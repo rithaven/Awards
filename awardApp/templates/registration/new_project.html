@@ -1,4 +1,4 @@
-{%extends "registration/base.html"%}
+{%extends "base.html"%}
 {% load bootstrap4%}
 {% load static%}
 {% block content%}
@@ -13,6 +13,7 @@
 </head>
 <body>
   <div class="container" style="background-color:#fff;">
+    <h1></h1>
     <div class="row">
       <form action="{%url 'new_project'%}" method="post" style="font-family: 'Dosis',sans-serif;" enctype="multipart/form-data">
         {%csrf_token%}
