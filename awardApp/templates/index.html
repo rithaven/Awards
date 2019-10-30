@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
-<body style="background-image: url('static/images/back.jpeg')">
+<body style="background-image: url('static/images/back.jpeg');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Abril+Fatface" />
 <div class="container">
   <div class="jumbotron text-center mb-0" id="jumbo" style="background-color:white;">
@@ -18,7 +18,7 @@
     <h1 class="second" style="font-family: 'Dosis', cursive; color:blue;font-size:70px;">Awards</h4>
       <p class="third" style="font-family: 'Dosis', cursive; color:blue;font-size:25px;"View projects, submit your project and review them></p>
     </div>
-    
+
     <div class="jumbotron itson mb-3">
       <div class="card-deck flex-wrap">
         {% for project in projects%}
