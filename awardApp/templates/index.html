@@ -10,13 +10,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
-<body style="background-image: url('static/images/back.jpeg');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
+<body style="background-image: url('static/images/bon.jpg');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Abril+Fatface" />
 <div class="container">
   <div class="jumbotron text-center mb-0" id="jumbo" style="background-color:white;">
 
-    <h1 class="second" style="font-family: 'Dosis', cursive; color:blue;font-size:70px;">Awards</h4>
-      <p class="third" style="font-family: 'Dosis', cursive; color:blue;font-size:25px;"View projects, submit your project and review them></p>
+    <h1 class="second" style="font-family: 'Dosis', cursive; font-size:70px;">Welcome to Awards! </h4>
+      <p class="third" style="font-family: 'Dosis', cursive; color:green;font-size:25px;">View projects, submit your project and rate them</p>
     </div>
 
     <div class="jumbotron itson mb-3">
@@ -36,6 +36,10 @@
       </div>
     </div>
     <div class="jumbotron text-center mt-3" style="background-color:white;font-family: 'Dosis', sans-serif;">
+      <h1>Subscribe Here</h1>
+      <br>
+      <br>
+
     <form action="{%url 'homePage'%}" method="post">
       {%csrf_token%}{% bootstrap_form letterForm%}
       <input type="submit" style="background-color:white;" value="subscribe to Awards">
