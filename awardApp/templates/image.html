@@ -2,7 +2,7 @@
 {% block content%}
 <div class="container">
   <div class="jumbotron text-center" style="background-color:white;">
-    <h1 class="h1" style="font-family: 'Dosis', cursive; color:blue;font-size:70px;">Awards </h1>
+    <h1 class="h1" style="font-family: 'Dosis', cursive; color:blue;font-size:70px;text-align: center">Awards </h1>
   </div>
 </div>
 <div class="container">
@@ -29,7 +29,7 @@
    
    {% endfor%}
       
-     <h1 style="color: black;font-family: 'Dosis', sans-serif;">AVERAGE OF REVIEWS</h1>
+     <h1 style="color: black;font-family: 'Dosis', sans-serif;"><u>Average of reviews:</u></h1>
 
 <h5 style="font-family: 'Dosis',sans-serif;">{{ project.review.count}} reviews ({{project.average_design| floatformat}} average rating of design)</h5>
 <h5 style="font-family: 'Dosis',sans-serif;">{{ project.review.count}} reviews ({{project.average_content| floatformat}} average rating of content)</h5>

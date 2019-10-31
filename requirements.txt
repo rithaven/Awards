@@ -1,5 +1,21 @@
-Processing /home/wecode/.cache/pip/wheels/5a/01/6b/b8d944e726b251e0f68a8786a3d26193c16f2883ae6f19c71a/freeze-1.0.10-cp36-none-any.whl
-Collecting six
-  Using cached https://files.pythonhosted.org/packages/73/fb/00a976f728d0d1fecfe898238ce23f502a721c0ac0ecfedb80e0d88c64e9/six-1.12.0-py2.py3-none-any.whl
-Installing collected packages: six, freeze
-Successfully installed freeze-1.0.10 six-1.12.0
+beautifulsoup4==4.8.1
+confusable-homoglyphs==3.2.0
+dj-database-url==0.5.0
+Django==1.11
+django-bootstrap4==1.0.1
+django-filter==2.2.0
+django-heroku==0.3.1
+django-registration==2.4.1
+django-tinymce==2.8.0
+djangorestframework==3.10.3
+freeze==1.0.10
+gunicorn==19.9.0
+Markdown==3.1.1
+numpy==1.17.3
+Pillow==6.2.1
+psycopg2==2.8.4
+python-decouple==3.1
+pytz==2019.3
+six==1.12.0
+soupsieve==1.9.4
+whitenoise==4.1.4
