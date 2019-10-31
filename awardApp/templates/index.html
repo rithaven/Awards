@@ -15,7 +15,7 @@
 <div class="container">
   <div class="jumbotron text-center mb-0" id="jumbo" style="background-color:white;">
 
-    <h1 class="second" style="font-family: 'Dosis', cursive; font-size:70px;">Welcome to Awards! </h4>
+    <h1 class="second" style="font-family: 'Dosis', cursive; font-size:70px;">Welcome to Awards App! </h4>
       <p class="third" style="font-family: 'Dosis', cursive; color:green;font-size:25px;">View projects, submit your project and rate them</p>
     </div>
 
@@ -35,20 +35,24 @@
         {% endfor%}
       </div>
     </div>
-    <div class="jumbotron text-center mt-3" style="background-color:white;font-family: 'Dosis', sans-serif;">
+    
+    <div class="jumbotron text-center mt-3" style="background-image: url('static/images/bon.jpeg');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;;font-family: 'Dosis', sans-serif;">
+      <div class="card" style="margin-left: 168px; margin-top:20px;box-shadow: 0 4px 8px 0 rgba(0,0, 0, 0.2);width: 70%;height:40%;transition: 0.3s;background-color: rgb(231, 182, 146);border-radius: 50%">
       <h1>Subscribe Here</h1>
       <br>
       <br>
 
     <form action="{%url 'homePage'%}" method="post">
       {%csrf_token%}{% bootstrap_form letterForm%}
-      <input type="submit" style="background-color:white;" value="subscribe to Awards">
+      <input type="submit" style="background-color:rgb(224, 238, 224);" value="subscribe to Awards">
     </form>
 
       </div>
     </div>
+
   {% endblock %}{%block scripts%}
   <script type="text/javascript" src="{%static 'js/scripts.js'%}"></script>
+</div>
 {% endblock%}
 </body>
 </html>
