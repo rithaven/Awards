@@ -74,6 +74,7 @@ You need the following to start working on the project on your local computer:
 * postgres
 * dicouple
 * whitenoise
+* pillow
 
 ## For more info:
 Contact me veneruth4@gmail.com
