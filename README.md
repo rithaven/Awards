@@ -18,7 +18,7 @@ As a user of the application i should be able to:
 * Have a computer or a laptop
 * Have an internet  connection
 
-# live site:https://theawards1.herokuapp.com/accounts/login/?next=/
+## live site:https://theawards1.herokuapp.com/accounts/login/?next=/
 
 * install Django
 *$ pip install django==1.11
