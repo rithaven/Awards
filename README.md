@@ -4,7 +4,7 @@
 ## By Ritha
 ## Decription
 
-Instagram-like is an application that lets you post photos for others to view, comment,like,follow,upload images and unfollow.
+Awards is an application that lets you post project for others to view, commentand rate.
 ## User Stories
 As a user of the application i should be able to:
 * Sign in or Sin up to the application to start using it.
