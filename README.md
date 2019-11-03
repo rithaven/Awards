@@ -8,17 +8,17 @@ Instagram-like is an application that lets you post photos for others to view, c
 ## User Stories
 As a user of the application i should be able to:
 * Sign in or Sin up to the application to start using it.
-* Upload images to the application.
+* Upload screenshot of his/her project  to the application.
 * Add a profile pic 
-* Follow other users and see their pictures on the timeline.
-* Like a picture and leave a comment on it.
+* view  Projects posted by other users.
+* Rate projects and comment on them.
 #Setup and the installation Requirements
 * Install python version 3.6.8
-* clone https://github.com/rithaven/Instagram-like
+* clone https://github.com/rithaven/Awards
 * Have a computer or a laptop
 * Have an internet  connection
 
-# live site: https://theinstagram1.herokuapp.com/
+# live site:https://theawards1.herokuapp.com/accounts/login/?next=/
 
 * install Django
 $ pip install django==1.11
