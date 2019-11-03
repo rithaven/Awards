@@ -21,7 +21,7 @@ As a user of the application i should be able to:
 # live site:https://theawards1.herokuapp.com/accounts/login/?next=/
 
 * install Django
-$ pip install django==1.11
+*$ pip install django==1.11
 
 * Create a virtual environment
 $ sudo apt-get install python3.6-venv
@@ -35,18 +35,18 @@ Specifications
 --------------------------------------------------------------------------------------------------
 |Behavior            | Behavior                 |                                         outcome|
 |--------------------|------------------------  |------------------------------------------------|
-|Display sign up for |  N/A                     |Display sign up form when a user visits the site|
+|Display sign up form|  N/A                     |Display sign up form when a user visits the site|
 |                    |                          |                                                |
 | Create an Account  |Fill the sign up form and |Create account and profile for the user and log |
-|                    | click submit             |                                       user into|                                 |Display current     |                          |                                                |
-|user's profile      |Click the user icon       |  Display  the current user's profile page with |
-|                    |                          |                                      their post|
-|Upload a post       | Click create a post      |Direct the user to a page with a form where the |
-|                    |                          |              user can create and submit a post | 
-|see other users     | click compass icon       |Direct the user to a page where they see a list |
-|                    |                          |                                  of other users|
-|comment on post     |click comment link        |Direct user to a page with a form for writing a |
-|                    |                          |                                      comment   | 
+|                    | click submit             |                                       user into|                                 |Display current      |                          |                                                |
+|user's profile      |Click on Edit profile     | Display  the current user's profile page      |
+|                    |                          |                                                |
+|Upload project's    | Click create on submit   |Direct the user to a page with a form where the |
+|  screanshot.       |           project        |              user can create and submit a post | 
+|see other users post| click view posject button|Direct the user to a page where they see project|
+|                    |                          |                                  details       |
+|comment on post     |Rwite your comment        |Direct user to a page with a form for writing a |
+                          
 ## Prerequisites
 
 You need the following to start working on the project on your local computer:
