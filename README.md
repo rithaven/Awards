@@ -4,7 +4,7 @@
 ## By Ritha
 ## Decription
 
-Awards is an application that lets you post project for others to view, comment and rate.
+Awards is an application that lets you post project for others to view, comment and rate your project. you can also view projects from other user's project.
 ## User Stories
 As a user of the application i should be able to:
 * Sign in or Sin up to the application to start using it.
