@@ -69,9 +69,11 @@ You need the following to start working on the project on your local computer:
  Run it by: $ python manage.py runserver
 ## Technologies Used
 * Python v3.6.8
-* django-Boostrap3
+* django-Boostrap4
 * Flask
 * postgres
+* dicouple
+* whitenoise
 
 ## For more info:
 Contact me veneruth4@gmail.com
