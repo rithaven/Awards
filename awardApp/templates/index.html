@@ -26,7 +26,6 @@
           <p style="font-family: 'Disis',sans-serif; text-align:center;">{{project.user.username}}</p>
           <span class="badge badge-pill badge-info" style="font-family: 'Dosis',sans-serif;">
           <a style="font-size: 20px;color: #EEE;" href="{{project.project_url}}">visit Site</a></span>
-          <span class="badge badge-pill badge-info" style="font-family: 'Dosis', sans-serif; text-align:center;font-size: 20px;color: #EEE;">Like</span>
           <span class="badge badge-pill badge-info" style="font-family: 'Disis',sans-serif;text-align: center;"><a style="font-size: 20px;color: #EEE;"href="{% url 'project' project.id%}">View project</a></span>
         </div>
         {% endfor%}
