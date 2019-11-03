@@ -63,8 +63,6 @@ You need the following to start working on the project on your local computer:
 -Heroku
 -Postgress Database
 ```
-## Installation
-$ git clone:https://github.com/rithaven/Instagram-like
 
 ## Build & Deployment
  You need to have fully cloned it to run locally.
