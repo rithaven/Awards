@@ -75,6 +75,7 @@ You need the following to start working on the project on your local computer:
 * dicouple
 * whitenoise
 * pillow
+* Django 1.11
 
 ## For more info:
 Contact me veneruth4@gmail.com
